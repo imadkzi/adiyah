@@ -146,7 +146,7 @@ ${dua.trim()}
     // Using the Brevo transactional email API endpoint
     const brevoApiUrl = "https://api.brevo.com/v3/smtp/email";
     const brevoApiKey = process.env.BREVO_API_KEY;
-    const fromEmail = process.env.FROM_EMAIL || "adiyahbyimad@icloud.com";
+    const fromEmail = process.env.FROM_EMAIL || "hello@imadkazi.co.uk";
     const toEmail = process.env.TO_EMAIL || "adiyahbyimad@icloud.com";
 
     // Validate required environment variables
