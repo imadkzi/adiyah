@@ -131,12 +131,9 @@ app.post("/submit-dua", rateLimiter, async (req, res) => {
     const senderName = name.trim();
 
     // Format email body as plain text
-    const emailBody = `Adʿiyah Submission
-
-Dua:
-${dua.trim()}
-
-— Name: ${senderName}`;
+    const emailBody = `
+    Dua:${dua.trim()}
+    Name: ${senderName}`;
 
     // Brevo API configuration
     // Using the Brevo transactional email API endpoint
