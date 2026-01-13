@@ -10,7 +10,7 @@ const honey = ref('')
 const isSubmitting = ref(false)
 const errorMessage = ref('')
 
-const API_URL = 'https://adiyah-backend-production.up.railway.app/submit-dua'
+const API_URL = 'https://adiyah-production.up.railway.app/submit-dua'
 
 const handleSubmit = async () => {
   if (!name.value.trim() || !dua.value.trim()) {

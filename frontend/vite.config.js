@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://adiyah-backend-production.up.railway.app",
+        target: "https://adiyah-production.up.railway.app",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
