@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-backgroundMain dark:bg-darkBackgroundMain text-textPrimary dark:text-darkTextPrimary;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .tap-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
