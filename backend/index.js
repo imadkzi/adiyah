@@ -128,19 +128,15 @@ app.post("/submit-dua", rateLimiter, async (req, res) => {
     }
 
     // Prepare email content
-    const timestamp = new Date().toISOString();
     const senderName = name.trim();
 
     // Format email body as plain text
     const emailBody = `Adʿiyah Submission
-Date: ${timestamp}
-
-Name: ${senderName}
 
 Dua:
 ${dua.trim()}
 
-— by Adʿiyah`;
+— Name: ${senderName}`;
 
     // Brevo API configuration
     // Using the Brevo transactional email API endpoint
@@ -160,7 +156,7 @@ ${dua.trim()}
     // Email payload for Brevo API
     const emailPayload = {
       sender: {
-        name: "Adʿiyah",
+        name: senderName,
         email: fromEmail,
       },
       to: [
