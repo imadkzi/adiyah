@@ -1,54 +1,56 @@
 <script setup>
-import { ref } from 'vue'
-import SplashScreen from './components/SplashScreen.vue'
-import IntentionScreen from './components/IntentionScreen.vue'
-import DuaForm from './components/DuaForm.vue'
-import PersistentHeader from './components/PersistentHeader.vue'
-import DarkModeToggle from './components/DarkModeToggle.vue'
+import { ref } from "vue";
+import SplashScreen from "./components/SplashScreen.vue";
+import IntentionScreen from "./components/IntentionScreen.vue";
+import DuaForm from "./components/DuaForm.vue";
+import PersistentHeader from "./components/PersistentHeader.vue";
+import DarkModeToggle from "./components/DarkModeToggle.vue";
 
-const currentScreen = ref('splash')
+const currentScreen = ref("splash");
 
 const goToNext = () => {
-  if (currentScreen.value === 'splash') {
-    currentScreen.value = 'intention'
-  } else if (currentScreen.value === 'intention') {
-    currentScreen.value = 'form'
+  if (currentScreen.value === "splash") {
+    currentScreen.value = "intention";
+  } else if (currentScreen.value === "intention") {
+    currentScreen.value = "form";
   }
-}
+};
 
 const handleSuccess = () => {
-  currentScreen.value = 'confirmation'
-}
+  currentScreen.value = "confirmation";
+};
 
 const resetToStart = () => {
-  currentScreen.value = 'intention'
-}
+  currentScreen.value = "intention";
+};
 </script>
 
 <template>
-  <div class="min-h-[100dvh] w-full overflow-hidden bg-backgroundMain dark:bg-darkBackgroundMain relative">
+  <div
+    class="min-h-[100dvh] w-full overflow-hidden bg-backgroundMain dark:bg-darkBackgroundMain relative"
+  >
     <PersistentHeader v-if="currentScreen !== 'splash'" />
     <DarkModeToggle v-if="currentScreen !== 'splash'" />
-    
+
     <transition name="fade" mode="out-in">
       <SplashScreen
         v-if="currentScreen === 'splash'"
         key="splash"
         @next="goToNext"
       />
-      
+
       <IntentionScreen
         v-else-if="currentScreen === 'intention'"
         key="intention"
         @next="goToNext"
       />
-      
+
       <DuaForm
         v-else-if="currentScreen === 'form'"
         key="form"
         @success="handleSuccess"
       />
-      
+
       <div
         v-else-if="currentScreen === 'confirmation'"
         key="confirmation"
@@ -56,14 +58,18 @@ const resetToStart = () => {
       >
         <div class="text-center max-w-md">
           <div class="mb-8">
-            <p class="text-textPrimary dark:text-darkTextPrimary text-base md:text-lg mb-2">
+            <p
+              class="text-textPrimary dark:text-darkTextPrimary text-base md:text-lg mb-2"
+            >
               Your Dua has been received.
             </p>
-            <p class="text-textSecondary dark:text-darkTextSecondary text-base md:text-lg">
-              May Allah accept your intention.
+            <p
+              class="text-textSecondary dark:text-darkTextSecondary text-base md:text-lg"
+            >
+              May Allah accept your dua.
             </p>
           </div>
-          
+
           <button
             @click="resetToStart"
             class="w-full max-w-xs mx-auto bg-accentSand dark:bg-darkAccentSand text-textPrimary dark:text-darkBackgroundMain font-semibold py-4 px-8 rounded-[12px] shadow-soft hover:shadow-soft-lg active:scale-95 transition-all duration-200 tap-target"

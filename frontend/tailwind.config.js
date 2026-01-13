@@ -17,7 +17,6 @@ export default {
         darkTextPrimary: "#EFECE6",
         darkTextSecondary: "#C2A36B",
         darkTextMuted: "#9A9893",
-        darkAccentSand: "#E4D6B0",
       },
       borderRadius: {
         DEFAULT: "12px",
